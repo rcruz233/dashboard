@@ -11,11 +11,7 @@ O gráfico abaixo representa a evolução do preço das ações ao longo dos ano
 @st.cache_data
 def carregar_dados(empresas):
     tickers = " ".join(empresas)
-    #dados_acao = yf.Tickers(tickers)
     cotacoes = yf.download(tickers, start='2024-01-01', end='2025-09-01')
-    # precos_acao = pd.read_csv("BaseItau.csv")
-    # precos_acao["Date"] = pd.to_datetime(precos_acao["Date"])
-    # precos_acao = precos_acao.set_index("Date")
     cotacoes = cotacoes["Close"]
     return cotacoes
 
@@ -88,5 +84,6 @@ Essa foi a performance de cada ativo no período selecionado:
 
 {texto_performance_carteira}
 """)
+
 
 
